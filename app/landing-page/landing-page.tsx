@@ -1,7 +1,7 @@
 // import { SpotifyLogo } from "@/components/icons"; // Assuming you have a Spotify logo component
 import { Button } from "~/components/ui/button"; // Your button component or use plain button
 
-export function Welcome() {
+export function LandingPage() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-gray-50 to-white p-4 dark:from-gray-900 dark:to-gray-800">
       <div className="w-full max-w-md space-y-8 rounded-xl bg-white p-8 shadow-lg dark:bg-gray-850">

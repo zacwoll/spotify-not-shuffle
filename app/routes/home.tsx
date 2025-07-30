@@ -1,5 +1,5 @@
 import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
+import { LandingPage } from "../landing-page/landing-page";
 
 interface CloudflareContext {
   cloudflare: {
@@ -24,5 +24,5 @@ export function loader({ context }: Route.LoaderArgs) {
 }
 
 export default function Home({ loaderData }: Route.ComponentProps) {
-  return <Welcome />;
+  return <LandingPage />;
 }
