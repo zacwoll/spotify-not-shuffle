@@ -1,5 +1,4 @@
-// import { SpotifyLogo } from "@/components/icons"; // Assuming you have a Spotify logo component
-import { Button } from "~/components/ui/button"; // Your button component or use plain button
+import { SpotifyLoginButton } from "~/components/ui/spotify-login-button";
 
 export function LandingPage() {
   return (
@@ -42,15 +41,11 @@ export function LandingPage() {
         </div>
 
         {/* CTA Button */}
-        <Button
-          asChild
-          className="w-full bg-green-600 py-6 text-lg font-semibold hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-600"
+        <SpotifyLoginButton
+          className="w-full"
         >
-          <a href="/api/auth/spotify">
-            {/* <SpotifyLogo className="mr-2 h-6 w-6" /> */}
-            Login with Spotify
-          </a>
-        </Button>
+          Login with Spotify
+        </SpotifyLoginButton>
 
         {/* Footer note */}
         <p className="text-center text-sm text-gray-500 dark:text-gray-400">

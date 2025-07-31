@@ -1,0 +1,20 @@
+/* Spotify Tailwind CSS file */
+
+:root {
+  /* Spotify Brand Colors */
+  --spotify-green: oklch(0.67 0.173 142.495);
+  --spotify-green-hover: oklch(0.72 0.173 142.495);
+  --spotify-black: oklch(0.12 0 0);
+  --spotify-white: oklch(1 0 0);
+  --spotify-gray-light: oklch(0.74 0 0);
+  --spotify-gray-dark: oklch(0.44 0 0);
+}
+
+@theme {
+  --color-spotify-green: var(--spotify-green);
+  --color-spotify-green-hover: var(--spotify-green-hover);
+  --color-spotify-black: var(--spotify-black);
+  --color-spotify-white: var(--spotify-white);
+  --color-spotify-gray-light: var(--spotify-gray-light);
+  --color-spotify-gray-dark: var(--spotify-gray-dark);
+}
