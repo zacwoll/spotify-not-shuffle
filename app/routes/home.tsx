@@ -11,8 +11,8 @@ interface CloudflareContext {
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "!Shuffle" },
+    { name: "description", content: "Welcome to !Shuffle" },
   ];
 }
 
