@@ -4,7 +4,8 @@ import { LandingPage } from "../landing-page/landing-page";
 interface CloudflareContext {
   cloudflare: {
     env: {
-      VALUE_FROM_CLOUDFLARE: string;
+      SPOTIFY_CLIENT_ID: string;
+      SPOTIFY_CLIENT_SECRET: string;
     };
   };
 }
@@ -19,10 +20,10 @@ export function meta({}: Route.MetaArgs) {
 export function loader({ context }: Route.LoaderArgs) {
   const ctx = context as unknown as CloudflareContext;
   return {
-    message: ctx.cloudflare.env.VALUE_FROM_CLOUDFLARE,
+    spotifyClientId: ctx.cloudflare.env.SPOTIFY_CLIENT_ID,
   };
 }
 
 export default function Home({ loaderData }: Route.ComponentProps) {
-  return <LandingPage />;
+  return <LandingPage spotifyClientId={loaderData.spotifyClientId} />;
 }

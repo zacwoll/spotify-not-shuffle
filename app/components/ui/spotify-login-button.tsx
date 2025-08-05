@@ -47,27 +47,6 @@ const buttonVariants = cva(
   },
 );
 
-// Spotify Auth Function
-const handleSpotifyAuth = () => {
-  const clientId = "clientId";
-  const redirectUri = `${window.location.origin}/auth/callback`;
-  const scopes = [
-    'playlist-read-private',
-    'playlist-modify-public',
-    'playlist-modify-private',
-    'user-read-private'
-  ].join(' ');
-
-  const authUrl = new URL('https://accounts.spotify.com/authorize');
-  authUrl.searchParams.append('client_id', clientId || '');
-  authUrl.searchParams.append('response_type', 'code');
-  authUrl.searchParams.append('redirect_uri', redirectUri);
-  authUrl.searchParams.append('scope', scopes);
-  authUrl.searchParams.append('state', Math.random().toString(36).substring(7));
-
-  window.location.href = authUrl.toString();
-};
-
 function SpotifyLoginButton({
   className,
   variant,
@@ -86,7 +65,7 @@ function SpotifyLoginButton({
     <Comp
       data-slot="button"
       className={cn(buttonVariants({ variant, size}), className )}
-      onClick={handleSpotifyAuth}
+      onClick={onClick}
       {...props}
     >
 		<span>{children || "Continue with Spotify"}</span>

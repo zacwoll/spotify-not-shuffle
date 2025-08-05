@@ -1,6 +1,29 @@
 import { SpotifyLoginButton } from "~/components/ui/spotify-login-button";
 
-export function LandingPage() {
+interface LandingPageProps {
+  spotifyClientId: string;
+}
+
+export function LandingPage({ spotifyClientId }: LandingPageProps) {
+  const handleSpotifyAuth = () => {
+    const redirectUri = `${window.location.origin}/auth/callback`;
+    const scopes = [
+      'playlist-read-private',
+      'playlist-modify-public',
+      'playlist-modify-private',
+      'user-read-private'
+    ].join(' ');
+
+    const authUrl = new URL('https://accounts.spotify.com/authorize');
+    authUrl.searchParams.append('client_id', spotifyClientId);
+    authUrl.searchParams.append('response_type', 'code');
+    authUrl.searchParams.append('redirect_uri', redirectUri);
+    authUrl.searchParams.append('scope', scopes);
+    authUrl.searchParams.append('state', Math.random().toString(36).substring(7));
+
+    window.location.href = authUrl.toString();
+  };
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-gray-50 to-white p-4 dark:from-gray-900 dark:to-gray-800">
       <div className="w-full max-w-md space-y-8 rounded-xl bg-white p-8 shadow-lg dark:bg-gray-850">
@@ -43,6 +66,7 @@ export function LandingPage() {
         {/* CTA Button */}
         <SpotifyLoginButton
           className="w-full"
+          onClick={handleSpotifyAuth}
         >
           Login with Spotify
         </SpotifyLoginButton>
